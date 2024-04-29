@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+void somaEMediaComArray() {
+    int numeros[5];
+    int soma = 0;
+    
+    printf("Digite 5 numeros inteiros: \n");
+    
+    for (int i = 0; i < 5; i++) {
+        printf("Numero %d: ", i + 1);
+        scanf("%d", &numeros[i]);
+        soma += numeros[i];
+    }
+    
+    double media = (double) soma / 5;
+    
+    printf("\nA soma é: %d", soma);
+    printf("\nA media é: %.2lf", media);
+
+}
+
+void somaComMatriz() {
+    int matriz [3][3] = { {5, 5, 5}, {5, 5, 5}, {5, 5, 5} };
+    int soma = 0;
+    
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            soma += matriz[i][j];
+        }
+    }
+    printf("\nA soma com matriz é: %d", soma);
+}
+
+int main() {
+    somaEMediaComArray();
+    somaComMatriz();
+    return 0;
+}
