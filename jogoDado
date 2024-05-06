@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int rolarDado() {
+    return rand() % 6 + 1;
+}
+
+int somarDados(int dado1, int dado2) {
+    return dado1 + dado2;
+}
+
+int main() {
+    int jogador1[2], jogador2[2];
+    int somaJogador1, somaJogador2;
+    int historicoJogador1[] = {};
+    int historicoJogador2[] = {};
+    int index = 0;
+    int stop;
+    srand(time(NULL));
+    
+    do {
+        puts("Jogador um pressione enter para jogar os dados!");
+        getchar();
+        jogador1[0] = rolarDado();
+        jogador1[1] = rolarDado();
+        printf("O primeiro dado do jogador um deu %d, e o segundo deu %d", jogador1[0], jogador1[1]);
+        
+        puts("\n\nJogador dois pressione enter para jogar os dados!");
+        getchar();
+        jogador2[0] = rolarDado();
+        jogador2[1] = rolarDado();
+        printf("O primeiro dado do jogador dois deu %d, e o segundo deu %d", jogador2[0], jogador2[1]);
+        
+        somaJogador1 = jogador1[0] + jogador1[1];
+        somaJogador2 = jogador2[0] + jogador2[1];
+        
+        if (somaJogador1 == somaJogador2) {
+            printf("\n\nA soma do jogador um foi: %d \nA soma do jogador dois foi: %d \nLogo deu empate!", somaJogador1, somaJogador2);
+        } else if (somaJogador1 > somaJogador2) {
+            printf("\n\nA soma do jogador um foi: %d \nA soma do jogador dois foi: %d \nLogo o jogador um ganhou!", somaJogador1, somaJogador2);
+        } else {
+            printf("\n\nA soma do jogador um foi: %d \nA soma do jogador dois foi: %d \nLogo o jogador dois ganhou!", somaJogador1, somaJogador2);
+        }
+        
+        historicoJogador1[index] = somaJogador1;
+        printf("\n\nO historico de jogadas do jogador um é: %d", historicoJogador1);
+        
+        historicoJogador2[index] = somaJogador2;
+        printf("\n\nO historico de jogadas do jogador dois é: %d", historicoJogador1);
+        
+        index++;
+        
+        puts("\n\nSe quiser parar de jogar digite o valor -1, caso queira continuar jogando digite qualquer outro valor");
+        scanf("%d", &stop);
+    } while (stop != -1);
+    
+    return 0;
+}
