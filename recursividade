@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int somaArr(int arr[], int n) {
+    if (n <= 0) {
+        return 0;
+    } else {
+        return arr[n-1] + somaArr(arr, n-1);
+    }
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    int number = sizeof(arr) / sizeof(arr[0]);
+    int resultado = somaArr(arr, number);
+    printf("Resultado: %d", resultado);
+    
+    return 0;
+}
+
+
+#include <stdlib.h>
+#include <stdio.h>
+
+int potencia(int b, int e) {
+    if (e == 0) {
+        return 1;
+    } else {
+        return b * potencia(b, e -1);
+    }
+}
+
+int main() {
+    int base = 3;
+    int expoente = 2;
+    int resultado = potencia(base, expoente);
+    printf("%d^%d = %d", base, expoente, resultado);
+    return 0;
+}
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int somaDosDigitos(int n) {
+    if (n == 0) {
+        return 0;
+    } else {
+        return (n % 10) + somaDosDigitos(n / 10);
+    }
+}
+
+
+int main() {
+    int numero = 12345;
+    int resultado = somaDosDigitos(numero);
+    printf("O resultado é da soma dos digitos do numero %d, é: %d", numero, resultado);
+    return 0;
+}
